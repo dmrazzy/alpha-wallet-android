@@ -128,6 +128,9 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a"
+            }
 
             if (signingConfigs.release.storeFile) {
                 signingConfig signingConfigs.release

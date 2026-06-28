@@ -76,9 +76,9 @@ public class TickerService
     private static final String COINGECKO_API = String.format("https://api.coingecko.com/api/v3/simple/token_price/%s?contract_addresses=%s&vs_currencies=%s&include_24hr_change=true",
             CHAIN_IDS, CONTRACT_ADDR, CURRENCY_TOKEN);
     private static final int    COINGECKO_MAX_FETCH = 10;
-    private static final String DEXGURU_API = "https://api.dex.guru/v1/tokens/" + CONTRACT_ADDR + "-" + CHAIN_IDS;
+    // private static final String DEXGURU_API = "https://api.dex.guru/v1/tokens/" + CONTRACT_ADDR + "-" + CHAIN_IDS;
     private static final String CURRENCY_CONV = "currency";
-    private static final boolean ALLOW_UNVERIFIED_TICKERS = false; //allows verified:false tickers from DEX.GURU. Not recommended
+    // private static final boolean ALLOW_UNVERIFIED_TICKERS = false; //allows verified:false tickers from DEX.GURU. Not recommended
     public static final long TICKER_TIMEOUT = DateUtils.WEEK_IN_MILLIS; //remove ticker if not seen in one week
     public static final long TICKER_STALE_TIMEOUT = 30 * DateUtils.MINUTE_IN_MILLIS; //Use market API if AlphaWallet market oracle not updating
     private final KeyProvider keyProvider = KeyProviderFactory.get();
@@ -91,8 +91,8 @@ public class TickerService
     private static String currentCurrencySymbol;
     private static long lastTickerUpdate;
     private static int keyCycle = 0;
-    private static final String AW_HOST = "percolate.one:8088";//"192.168.50.206:8088";// "percolate.one:8088";
-    private static final String FULL_AW_HOST = "https://" + AW_HOST;//"https://" + AW_HOST;
+    private static final String AW_HOST = "ticker.percolate.one";//"192.168.50.206:8088";// "percolate.one:8088"; "192.168.50.147:8088";
+    private static final String FULL_AW_HOST = "http://" + AW_HOST;//"https://" + AW_HOST;
     private static final int AW_API_BATCH_SIZE = 20;
 
     /** Chain ID -> addresses the AW API doesn't have (no entry returned). Skip these in future requests. */
